@@ -1,0 +1,46 @@
+create database test1;
+use test1;
+create table t1(
+	id int unsigned auto_increment primary key,
+	username varchar(50),
+    email varchar(50),
+    sex char(1)
+)engine=innodb default charset=utf8;
+
+insert into t1 (username,email) values ('lalala','11111@qq.com');
+select * from t1 where id = 1;
+update t1 set sex = 'f' where id = 1;
+
+select * from t1 where id = 1;
+delete from t1 where id = 1;
+
+select distinct username from t1;
+select * from t1 order by id desc;
+select * from t1 limit 5,1;
+select * from t1 order by id desc limit 5,1;
+
+select avg(id) from t1;
+select count(*) from t1;
+select count(distinct sex) from t1;
+select sum(age) from t1;
+select min(age) from t1;
+select max(age) from t1;
+
+select sex,avg(age) from t1 group by sex having avg(age) > 50;
+
+show columns from t1;
+select * from test1;
+create table t2(
+	id int unsigned auto_increment primary key,
+	username varchar(50),
+    email varchar(50),
+    sex char(1),
+    age int(10)
+)engine=innodb default charset=utf8;
+insert into t2 (username,age) values ('hong',40);
+select avg(age) from t2 where age >30;
+select username,avg(age) from t2 group by username having avg(age) > 30;
+select * from peoples where school !='GDUFS' and school is null;
+select * from t1;
+select * from t1 where email = 'GDUFS';
+insert into t1 (email) values ('GDUFS');
